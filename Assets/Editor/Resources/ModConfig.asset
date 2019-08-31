@@ -13,13 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: KritFlipTheCoin
   title: Flip The Coin
-  description: 'Call it! Quickly, before the bomb does.
-
-
-    Module ID: KritFlipTheCoin
-
-
-    Manual: NAN'
+  description: "Call it! Quickly, before the bomb does.\r\n\r\nModule ID: KritFlipTheCoin\r\n\r\nManual
+    (HTML): https://ktane.timwi.de/HTML/Flip%20The%20Coin.html\nManual (PDF): https://ktane.timwi.de/PDF/Flip%20The%20Coin.pdf"
   version: V1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 823c5ddd7f6f13143acc5af14a3aa16e, type: 3}

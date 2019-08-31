@@ -55,7 +55,7 @@ public class KritFlipTheCoin : MonoBehaviour
         }
     }
 
-    private readonly string TwitchHelpMessage = "Type '!{0} respond Y/N' to press the given button";
+    private readonly string TwitchHelpMessage = "Type '!{0} flip' to flip the coin, then type '!{0} submit' to submit the current side.";
 
     void Awake()
     {
@@ -168,11 +168,7 @@ public class KritFlipTheCoin : MonoBehaviour
         else if (Coin == "1E")
         {
             //Rules for the 1 euro coin: The batteries.
-            if (BombInfo.GetBatteryCount() == 0)
-            {
-                DesiredSide = "Tails";
-            }
-            else if (Digit > BombInfo.GetBatteryCount())
+            if (Digit > BombInfo.GetBatteryCount())
             {
                 DesiredSide = "Heads";
             }
@@ -258,19 +254,16 @@ public class KritFlipTheCoin : MonoBehaviour
         {
             case 1:
                 {
-                    Debug.Log("Sound 2");
                     CoinToss.PlaySoundAtTransform("CoinToss2", transform);
                     break;
                 }
             case 2:
                 {
-                    Debug.Log("Sound 3");
                     CoinToss.PlaySoundAtTransform("CoinToss3", transform);
                     break;
                 }
             default:
                 {
-                    Debug.Log("Sound 1");
                     CoinToss.PlaySoundAtTransform("CoinToss", transform);
                     break;
                 }

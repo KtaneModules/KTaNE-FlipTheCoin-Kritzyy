@@ -39,23 +39,32 @@ public class KritFlipTheCoin : MonoBehaviour
 
     IEnumerator ProcessTwitchCommand(string Command)
     {
-        if (Regex.IsMatch(Command, "^flip"))
+        if (Regex.IsMatch(Command, "^flip submit"))
         {
             yield return null;
             yield return new[] { CoinBtn };
+            yield return new WaitForSecondsRealtime(0.01f);
+            yield return null;
+            yield return new[] { SubmitBtn };
         }
-        else if (Regex.IsMatch(Command, "^submit"))
+        else if (Regex.IsMatch(Command, "^doubleflip submit"))
         {
+            yield return null;
+            yield return new[] { CoinBtn };
+            yield return new WaitForSecondsRealtime(0.01f);
+            yield return null;
+            yield return new[] { CoinBtn };
+            yield return new WaitForSecondsRealtime(0.01f);
             yield return null;
             yield return new[] { SubmitBtn };
         }
         else
         {
-            yield return "sendtochaterror Command (" + Command + ") is invalid. You can choose \"Flip\" or \"Submit\".";
+            yield return "sendtochaterror Command \"" + Command + "\" is invalid";
         }
     }
 
-    private readonly string TwitchHelpMessage = "Type '!{0} flip' to flip the coin, then type '!{0} submit' to submit the current side.";
+    private readonly string TwitchHelpMessage = "To flip the coin once and submit that side, use \"!{0} flip submit\". To submit the current side, use \"!{0} doubleflip submit\" to flip twice, then submit.";
 
     void Awake()
     {
